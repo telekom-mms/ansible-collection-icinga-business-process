@@ -7,8 +7,22 @@ icinga_business_processes:
    menu: yes
    statetype: soft
    nodes:
+    - name: testrootnode2
+      displayname: Test Root Node Display Name
+      checks:
+        - name: testserver1
+          type: host
+        - name: testserver1
+          type: service
+          service: nginx_status
+        - name: subprocess1
+          type: node
+        - name: subprocess2
+          type: node
+          process: process2
     - name: testrootnode
       displayname: Test Root Node Display Name
+      operator: 1 of
       checks:
         - name: testserver1
           type: host

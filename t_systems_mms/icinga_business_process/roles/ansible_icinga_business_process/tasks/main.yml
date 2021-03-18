@@ -3,5 +3,5 @@
 - name: create configuration from template
   template:
     src: config.j2
-    dest: /tmp/foo.cfg
+    dest: "/tmp/{{ item.title }}.cfg"
   loop: "{{ icinga_business_processes }}"
