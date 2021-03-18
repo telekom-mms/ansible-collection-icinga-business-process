@@ -16,12 +16,21 @@
 		{%- elif check.type == 'service' -%}
 			{%- set check_string = check.name + ';' + check.service -%}
 		{%- elif check.type == 'node' -%}
-			{%- set check_string = check.name -%}
+			{%- if check.process is defined -%}
+				{%- set check_string = '@' + check.process + ':' + check.name -%}
+			{%- else -%}
+				{%- set check_string = check.name -%}
+			{%- endif -%}
 		{%- endif -%}
 		{{ checks.append(check_string) }}
 	{%- endfor -%}
 
+{% if node.operator is defined %}
+{{ node.name }} = {{ node.operator }}: {{ checks|join(' + ') }}
+{% else %}
 {{ node.name }} = {{ checks|join(' & ') }}
+{% endif %}
 display 1;{{ node.name }};{{ node.displayname }}
+
 {% endfor %}
 
