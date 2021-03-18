@@ -1,0 +1,19 @@
+---
+# defaults file for ansible_icinga_business_process
+icinga_business_processes:
+ - title: process1
+   description: Process 1
+   owner: user
+   menu: yes
+   statetype: soft
+   nodes:
+    - name: testrootnode
+      displayname: Test Root Node Display Name
+      checks:
+        - name: testserver1
+          type: host
+        - name: testserver1
+          type: service
+          service: nginx_status
+        - name: subprocess1
+          type: node
