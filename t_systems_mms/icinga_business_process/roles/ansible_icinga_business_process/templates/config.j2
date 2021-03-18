@@ -25,10 +25,14 @@
 		{{ checks.append(check_string) }}
 	{%- endfor -%}
 
-{% if node.operator is defined %}
-{{ node.name }} = {{ node.operator }}: {{ checks|join(' + ') }}
-{% else %}
-{{ node.name }} = {{ checks|join(' & ') }}
+{% if node.operator == 'or' -%}
+	{{ node.name }} = {{ checks|join(' | ') }}
+{% elif node.operator == 'not' -%}
+	{{ node.name }} = {{ checks|join(' ! ') }}
+{% elif node.operator == 'and' -%}
+	{{ node.name }} = {{ checks|join(' & ') }}
+{% elif node.operator is defined -%}
+	{{ node.name }} = {{ node.operator }}: {{ checks|join(' + ') }}
 {% endif %}
 display 1;{{ node.name }};{{ node.displayname }}
 

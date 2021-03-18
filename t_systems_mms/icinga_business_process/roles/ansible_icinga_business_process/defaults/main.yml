@@ -9,6 +9,7 @@ icinga_business_processes:
    nodes:
     - name: testrootnode2
       displayname: Test Root Node Display Name
+      operator: and
       checks:
         - name: testserver1
           type: host
@@ -23,6 +24,17 @@ icinga_business_processes:
     - name: testrootnode
       displayname: Test Root Node Display Name
       operator: 1 of
+      checks:
+        - name: testserver1
+          type: host
+        - name: testserver1
+          type: service
+          service: nginx_status
+        - name: subprocess1
+          type: node
+    - name: testrootnode3
+      displayname: Test Root Node Display Name
+      operator: or
       checks:
         - name: testserver1
           type: host
