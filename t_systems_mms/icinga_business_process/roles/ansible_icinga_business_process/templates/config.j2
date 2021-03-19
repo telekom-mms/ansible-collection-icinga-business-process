@@ -34,7 +34,12 @@
 {% elif node.operator is defined -%}
 	{{ node.name }} = {{ node.operator }}: {{ checks|join(' + ') }}
 {% endif %}
-display 1;{{ node.name }};{{ node.displayname }}
+{% if node.visible -%}
+    {%- set display = '1' -%}
+{% else -%}
+	{%- set display = '0' -%}
+{%- endif %}
+display {{ display }};{{ node.name }};{{ node.displayname }}
 
 {% endfor %}
 

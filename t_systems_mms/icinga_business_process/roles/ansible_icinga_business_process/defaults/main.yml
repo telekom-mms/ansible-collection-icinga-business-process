@@ -10,20 +10,22 @@ icinga_business_processes:
     - name: testrootnode2
       displayname: Test Root Node Display Name
       operator: and
+      visible: true
       checks:
         - name: testserver1
           type: host
         - name: testserver1
           type: service
           service: nginx_status
-        - name: subprocess1
+        - name: testsubnode
           type: node
         - name: subprocess2
           type: node
           process: process2
-    - name: testrootnode
+    - name: testsubnote
       displayname: Test Root Node Display Name
       operator: 1 of
+      visible: false
       checks:
         - name: testserver1
           type: host
@@ -35,6 +37,7 @@ icinga_business_processes:
     - name: testrootnode3
       displayname: Test Root Node Display Name
       operator: or
+      visible: true
       checks:
         - name: testserver1
           type: host
