@@ -11,6 +11,7 @@ icinga_business_processes:
       displayname: Test Root Node Display Name
       operator: and
       visible: true
+      info_url: https://www.foobar.com
       checks:
         - name: testserver1
           type: host

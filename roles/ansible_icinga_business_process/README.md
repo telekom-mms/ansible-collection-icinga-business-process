@@ -1,40 +1,70 @@
-icinga_business_process
-=======================
-
+# Ansible Icinga Business Process
 This role does generate a configuration file for the icinga business process extension
+## Installation
+TBA
 
-Requirements
-------------
+## Role Variables
+The role is configured by a single variable `icinga_business_processes` containing an array of configuration hashes
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+### Structure of the configuration hash:
 
-Role Variables
---------------
+```yaml
+icinga_business_processes:
+ - title: process1
+   description: Process 1
+   owner: user
+   menu: yes
+   statetype: soft
+   nodes:
+    - name: testrootnode2
+      displayname: Test Root Node Display Name
+      operator: and
+      visible: true
+      info_url: http://localhost/info
+      checks:
+        - name: testserver1
+          type: host
+        - name: testserver1
+          type: service
+          service: webserver_status
+        - name: testsubnode
+          type: node
+        - name: subprocess2
+          type: node
+          process: process2
+```
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-visible (needed) = 'Visualization' for the Business Process Module. Possible values are true = display1 and false = display0
-
+### Variable Contents
+| Variable                   | Required | Type |Description
+|----------------------------|----------|------|-----------
+| **icinga_business_processes**
+| title                      | yes      | string | Title of the Business Process
+| description                | no       | string | Description of the Business Process
+| owner                      | yes      | string | Owner
+| menu                       | yes      | boolean|
+| statetype                  | yes      | string |
+| nodes                      | yes      | array  | Array of the Nodes
+| **nodes**
+| name                       | yes      | string |
+| displayname                | yes      | string |
+| operator                   | yes      | string |
+| visible                    | yes      | boolean|
+| info_url                   | no       | string | Info URL which will be displayed on the "(i)" button on the node
+| checks                     | yes      | array  |
+| **checks**
+| name                       | yes      | string |
+| type                       | yes      | string | possible values are: host/service/node
+| service                    | no       | string | check service if type is service
+| process                    | no       | string | does set the external businessprocess if type is node
 The variable 'operator' is a mandatory variable
-Dependencies
-------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
+## Dependencies
+TBA
+## Example playbook
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+```yaml
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+         - ansible_icinga_business_process
+```
