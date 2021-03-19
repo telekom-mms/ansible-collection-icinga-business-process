@@ -1,7 +1,0 @@
----
-# tasks file for ansible_icinga_business_process
-- name: create configuration from template
-  template:
-    src: config.j2
-    dest: "/tmp/{{ item.title }}.cfg"
-  loop: "{{ icinga_business_processes }}"

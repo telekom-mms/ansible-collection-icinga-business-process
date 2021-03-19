@@ -1,4 +1,0 @@
-- hosts: localhost
-  connection: local
-  roles:
-   - ansible_icinga_business_process

@@ -1,0 +1,48 @@
+---
+# defaults file for ansible_icinga_business_process
+icinga_business_processes:
+ - title: process1
+   description: Process 1
+   owner: user
+   menu: yes
+   statetype: soft
+   nodes:
+    - name: testrootnode2
+      displayname: Test Root Node Display Name
+      operator: and
+      visible: true
+      checks:
+        - name: testserver1
+          type: host
+        - name: testserver1
+          type: service
+          service: nginx_status
+        - name: testsubnode
+          type: node
+        - name: subprocess2
+          type: node
+          process: process2
+    - name: testsubnote
+      displayname: Test Root Node Display Name
+      operator: 1 of
+      visible: false
+      checks:
+        - name: testserver1
+          type: host
+        - name: testserver1
+          type: service
+          service: nginx_status
+        - name: subprocess1
+          type: node
+    - name: testrootnode3
+      displayname: Test Root Node Display Name
+      operator: or
+      visible: true
+      checks:
+        - name: testserver1
+          type: host
+        - name: testserver1
+          type: service
+          service: nginx_status
+        - name: subprocess1
+          type: node

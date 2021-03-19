@@ -1,0 +1,45 @@
+### Business Process Config File ###
+#
+# Title           : {{ item.title }}
+# Description     : {{ item.description }}
+# Owner           : {{ item.owner }}
+# AddToMenu       : {{ item.menu }}
+# Statetype       : {{ item.statetype }}
+#
+###################################
+
+{% for node in item.nodes -%}
+	{%- set checks = [] -%}
+	{%- for check in node.checks -%}
+		{%- if check.type == 'host' -%}
+			{%- set check_string = check.name + ';Hoststatus' -%}
+		{%- elif check.type == 'service' -%}
+			{%- set check_string = check.name + ';' + check.service -%}
+		{%- elif check.type == 'node' -%}
+			{%- if check.process is defined -%}
+				{%- set check_string = '@' + check.process + ':' + check.name -%}
+			{%- else -%}
+				{%- set check_string = check.name -%}
+			{%- endif -%}
+		{%- endif -%}
+		{{ checks.append(check_string) }}
+	{%- endfor -%}
+
+{% if node.operator == 'or' -%}
+	{{ node.name }} = {{ checks|join(' | ') }}
+{% elif node.operator == 'not' -%}
+	{{ node.name }} = {{ checks|join(' ! ') }}
+{% elif node.operator == 'and' -%}
+	{{ node.name }} = {{ checks|join(' & ') }}
+{% elif node.operator is defined -%}
+	{{ node.name }} = {{ node.operator }}: {{ checks|join(' + ') }}
+{% endif %}
+{% if node.visible -%}
+    {%- set display = '1' -%}
+{% else -%}
+	{%- set display = '0' -%}
+{%- endif %}
+display {{ display }};{{ node.name }};{{ node.displayname }}
+
+{% endfor %}
+
