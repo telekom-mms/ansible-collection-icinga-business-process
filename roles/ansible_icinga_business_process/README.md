@@ -56,7 +56,6 @@ icinga_business_processes:
 | type                       | yes      | string | possible values are: host/service/node
 | service                    | no       | string | check service if type is service
 | process                    | no       | string | does set the external businessprocess if type is node
-The variable 'operator' is a mandatory variable
 
 ## Dependencies
 TBA
