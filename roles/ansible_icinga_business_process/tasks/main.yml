@@ -5,3 +5,19 @@
     src: config.j2
     dest: "/tmp/{{ item.title }}.cfg"
   loop: "{{ icinga_business_processes }}"
+
+- name: upload template
+  uri:
+    url: "{{ icinga_business_process_url }}/businessprocess/process/upload"
+    user: "{{ icinga_business_process_user }}"
+    password: "{{ icinga_business_process_password }}"
+    method: POST
+    status_code:
+      - 302
+    body_format: form-urlencoded
+    body:
+      name: '{{ item.title }}'
+      source: "{{ lookup('file', '/tmp/{{ item.title }}.cfg', convert_data=False) }}"
+      Store: Store
+      __FORM_NAME: IcingaModuleBusinessprocessFormsBpUploadForm
+  loop: "{{ icinga_business_processes }}"

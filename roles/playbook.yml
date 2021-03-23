@@ -1,4 +1,15 @@
 - hosts: localhost
   connection: local
+  # prompt vars just for test purposes
+  vars_prompt:
+    - name: icinga_business_process_user
+      prompt: Icinga Username
+      private: false
+    - name: icinga_business_process_password
+      prompt: Icinga Password
+      private: true
+    - name: icinga_business_process_url
+      prompt: Icinga Url
+      private: false
   roles:
    - ansible_icinga_business_process

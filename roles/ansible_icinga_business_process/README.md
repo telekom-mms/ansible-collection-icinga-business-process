@@ -35,27 +35,30 @@ icinga_business_processes:
 ```
 
 ### Variable Contents
-| Variable                   | Required | Type |Description
-|----------------------------|----------|------|-----------
+| Variable                         | Required |  Type  |Description
+|----------------------------------|----------|--------|-----------
+| icinga_business_process_url      | yes      | string | URL to the Incinga instance with installed Business Process extension
+| icinga_business_process_user     | yes      | string | User for Icinga Login
+| icinga_business_process_password | yes      | string | Password for Icinga Login
 | **icinga_business_processes**
-| title                      | yes      | string | Title of the Business Process
-| description                | no       | string | Description of the Business Process
-| owner                      | yes      | string | Owner
-| menu                       | yes      | boolean|
-| statetype                  | yes      | string |
-| nodes                      | yes      | array  | Array of the Nodes
+| title                            | yes      | string | Title of the Business Process
+| description                      | no       | string | Description of the Business Process
+| owner                            | yes      | string | Owner
+| menu                             | yes      | bool   |
+| statetype                        | yes      | string |
+| nodes                            | yes      | array  | Array of the Nodes
 | **nodes**
-| name                       | yes      | string |
-| displayname                | yes      | string |
-| operator                   | yes      | string |
-| visible                    | yes      | boolean|
-| info_url                   | no       | string | Info URL which will be displayed on the "(i)" button on the node
-| checks                     | yes      | array  |
+| name                             | yes      | string |
+| displayname                      | yes      | string |
+| operator                         | yes      | string |
+| visible                          | yes      | bool   |
+| info_url                         | no       | string | Info URL which will be displayed on the "(i)" button on the node
+| checks                           | yes      | array  |
 | **checks**
-| name                       | yes      | string |
-| type                       | yes      | string | possible values are: host/service/node
-| service                    | no       | string | check service if type is service
-| process                    | no       | string | does set the external businessprocess if type is node
+| name                             | yes      | string |
+| type                             | yes      | string | possible values are: host/service/node
+| service                          | no       | string | check service if type is service
+| process                          | no       | string | does set the external businessprocess if type is node
 
 ## Dependencies
 TBA
