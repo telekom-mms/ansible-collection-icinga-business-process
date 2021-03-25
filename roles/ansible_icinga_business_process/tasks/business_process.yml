@@ -11,6 +11,16 @@
       - 200
   register: alreadyexists
 
+- name: download configuration of existing business process
+  uri:
+    url: "{{ icinga_business_process_url }}/businessprocess/process/download?config=ansible-test"
+    user: "{{ icinga_business_process_user }}"
+    password: "{{ icinga_business_process_password }}"
+    method: GET
+    return_content: true
+  when: alreadyexists.status == 200
+  register: configuration_download
+
 - name: delete existing business process if it exists
   uri:
     url: "{{ icinga_business_process_url }}/businessprocess/process/config?config={{ item.title }}"
@@ -25,7 +35,13 @@
       Delete: Delete
     status_code:
       - 302
-  when: alreadyexists.status == 200
+  when: >
+    alreadyexists.status == 200 and
+    configuration_download.content != "{{ lookup('template', './config.j2', convert_data=False) }}"
+
+- name: wait for 5 seconds and continue with play
+  wait_for:
+    timeout: 5
 
 - name: upload template
   uri:
