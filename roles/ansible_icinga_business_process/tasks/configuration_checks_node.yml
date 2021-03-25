@@ -1,0 +1,15 @@
+---
+
+- assert:
+    that:
+      - check.name is defined
+      - >
+        check.type == 'host' or
+        (
+          check.type == 'service' and
+          check.service is defined
+        ) or
+        check.type == 'node'
+  loop: "{{ node.checks }}"
+  loop_control:
+    loop_var: check

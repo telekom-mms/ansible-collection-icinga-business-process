@@ -3,6 +3,12 @@
 - name: perform general configuration checks
   include_tasks: configuration_checks_general.yml
 
+- name: perform business process configuration checks
+  include_tasks: configuration_checks_business_process.yml
+  loop: "{{ icinga_business_processes }}"
+  loop_control:
+    loop_var: businessprocess
+
 - name: setup business processes
   include_tasks: business_process.yml
   loop: "{{ icinga_business_processes }}"

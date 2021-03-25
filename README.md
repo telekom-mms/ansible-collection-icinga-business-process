@@ -15,7 +15,7 @@ TBA
 Please see the [README](roles/ansible_icinga_business_process/README.md) of the role.
 
 
-## Know Issues
+## Known Issues
 
 If you get this type of error it probably means that a node or service was specified which does not exist in your Icinga configuration:
 ```bash

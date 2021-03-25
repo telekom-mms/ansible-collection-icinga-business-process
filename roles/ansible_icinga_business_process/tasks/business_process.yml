@@ -1,4 +1,5 @@
 ---
+
 - name: check if business process already exists
   uri:
     url: "{{ icinga_business_process_url }}/businessprocess/process/show?config={{ item.title }}&format=json"

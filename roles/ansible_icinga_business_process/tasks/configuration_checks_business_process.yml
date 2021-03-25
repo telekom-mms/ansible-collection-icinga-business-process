@@ -1,0 +1,26 @@
+---
+
+- assert:
+    that:
+      - businessprocess.title is defined
+      - businessprocess.owner is defined
+      - businessprocess.menu == True or businessprocess.menu == False
+      - businessprocess.statetype == 'soft' or businessprocess.statetype == 'hard'
+      - businessprocess.nodes|length>0
+
+- assert:
+    that:
+      - node.name is defined
+      - node.displayname is defined
+      - node.operator is defined
+      - node.visible == True or node.visible == False
+      - node.checks|length>0
+  loop: "{{ businessprocess.nodes }}"
+  loop_control:
+    loop_var: node
+
+- name: perform node configuration checks
+  include_tasks: configuration_checks_node.yml
+  loop: "{{ businessprocess.nodes }}"
+  loop_control:
+    loop_var: node
