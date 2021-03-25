@@ -1,10 +1,4 @@
 ---
-# tasks file for ansible_icinga_business_process
-- name: create configuration from template
-  template:
-    src: config.j2
-    dest: "/tmp/{{ item.title }}.cfg"
-  loop: "{{ icinga_business_processes }}"
 
 - name: upload template
   uri:
@@ -17,7 +11,7 @@
     body_format: form-urlencoded
     body:
       name: '{{ item.title }}'
-      source: "{{ lookup('file', '/tmp/{{ item.title }}.cfg', convert_data=False) }}"
+      source: "{{ lookup('template', './config.j2', convert_data=False) }}"
       Store: Store
       __FORM_NAME: IcingaModuleBusinessprocessFormsBpUploadForm
   loop: "{{ icinga_business_processes }}"

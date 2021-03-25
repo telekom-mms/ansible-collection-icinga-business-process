@@ -66,7 +66,52 @@ TBA
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
 ```yaml
-    - hosts: servers
-      roles:
-         - ansible_icinga_business_process
+- hosts: servers
+  vars:
+    icinga_business_process_user: username
+    icinga_business_process_password: loginpassword
+    icinga_business_process_url: https://icinga.example.com
+    icinga_business_processes:
+      - title: ansible-test
+        description: Test Business process for Ansible Role
+        owner: user
+        menu: yes
+        statetype: soft
+        nodes:
+          - name: service-db-status
+            displayname: DB Cluster Status
+            operator: 2 of
+            visible: false
+            checks:
+              - name: service-prod-db01
+                type: service
+                service: db_status
+              - name: service-prod-db02
+                type: service
+                service: db_status
+              - name: service-prod-db03
+                type: service
+                service: db_status
+          - name: service-fpm-status
+            displayname: PHP FPM Status
+            operator: 1 of
+            visible: false
+            checks:
+              - name: service-prod-web01
+                type: service
+                service: check_php_fpm_status
+              - name: service-prod-web02
+                type: service
+                service: check_php_fpm_status
+          - name: service-frontend
+            displayname: Frontend
+            visible: true
+            operator: and
+            checks:
+              - name: service-db-status
+                type: node
+              - name: service-fpm-status
+                type: node
+  roles:
+    - ansible_icinga_business_process
 ```
