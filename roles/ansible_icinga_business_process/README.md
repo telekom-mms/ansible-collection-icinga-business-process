@@ -1,7 +1,5 @@
 # Ansible Icinga Business Process
 This role does generate a configuration file for the icinga business process extension
-## Installation
-TBA
 
 ## Role Variables
 The role is configured by a single variable `icinga_business_processes` containing an array of configuration hashes
@@ -61,7 +59,8 @@ icinga_business_processes:
 | process                          | no       | string | does set the external businessprocess if type is node
 
 ## Dependencies
-TBA
+- Ansible >= 2.9
+- Icinga business processes module (https://github.com/Icinga/icingaweb2-module-businessprocess)
 ## Example playbook
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
