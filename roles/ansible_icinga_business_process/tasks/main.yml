@@ -1,17 +1,4 @@
 ---
-
-- name: upload template
-  uri:
-    url: "{{ icinga_business_process_url }}/businessprocess/process/upload"
-    user: "{{ icinga_business_process_user }}"
-    password: "{{ icinga_business_process_password }}"
-    method: POST
-    status_code:
-      - 302
-    body_format: form-urlencoded
-    body:
-      name: '{{ item.title }}'
-      source: "{{ lookup('template', './config.j2', convert_data=False) }}"
-      Store: Store
-      __FORM_NAME: IcingaModuleBusinessprocessFormsBpUploadForm
+- name: setup business processes
+  include_tasks: business_process.yml
   loop: "{{ icinga_business_processes }}"

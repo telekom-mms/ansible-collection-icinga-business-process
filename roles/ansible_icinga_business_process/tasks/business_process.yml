@@ -1,0 +1,42 @@
+---
+- name: check if business process already exists
+  uri:
+    url: "{{ icinga_business_process_url }}/businessprocess/process/show?config={{ item.title }}&format=json"
+    user: "{{ icinga_business_process_user }}"
+    password: "{{ icinga_business_process_password }}"
+    method: GET
+    status_code:
+      - 404
+      - 200
+  register: alreadyexists
+
+- name: delete existing business process if it exists
+  uri:
+    url: "{{ icinga_business_process_url }}/businessprocess/process/config?config={{ item.title }}"
+    user: "{{ icinga_business_process_user }}"
+    password: "{{ icinga_business_process_password }}"
+    method: POST
+    body_format: form-urlencoded
+    body:
+      __FORM_NAME: IcingaModuleBusinessprocessFormsBpConfigForm
+      name: "{{ item.title }}"
+      Title: "{{ item.title }}"
+      Delete: Delete
+    status_code:
+      - 302
+  when: alreadyexists.status == 200
+
+- name: upload template
+  uri:
+    url: "{{ icinga_business_process_url }}/businessprocess/process/upload"
+    user: "{{ icinga_business_process_user }}"
+    password: "{{ icinga_business_process_password }}"
+    method: POST
+    status_code:
+      - 302
+    body_format: form-urlencoded
+    body:
+      name: '{{ item.title }}'
+      source: "{{ lookup('template', './config.j2', convert_data=False) }}"
+      Store: Store
+      __FORM_NAME: IcingaModuleBusinessprocessFormsBpUploadForm
