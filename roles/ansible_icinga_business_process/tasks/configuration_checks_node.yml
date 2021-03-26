@@ -1,6 +1,7 @@
 ---
 
-- assert:
+- name: check that the required check parameters are defined
+  assert:
     that:
       - check.name is defined
       - >
