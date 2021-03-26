@@ -1,6 +1,6 @@
 namespace: t_systems_mms
 name: icinga_business_process
-version: 0.0.1
+version: 0.0.3
 readme: README.md
 authors:
   - Christoph Sieber <christoph.sieber@t-systems.com>
@@ -19,6 +19,7 @@ dependencies: {}
 repository: 'https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process'
 documentation: 'https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process'
 homepage: 'https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process'
-issues: 'https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/issues'
+issues: >-
+  https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/issues
 build_ignore:
   - .github
