@@ -10,7 +10,7 @@ description: >-
   the icinga business process extension.
 license:
   - GPL-3.0-only
-license_file: 'LICENSE'
+license_file: ''
 tags:
   - icinga
   - monitoring
