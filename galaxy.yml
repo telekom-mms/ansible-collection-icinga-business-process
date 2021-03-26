@@ -9,7 +9,7 @@ description: >-
   This collection contains an Ansible role to configure business processes in
   the icinga business process extension.
 license:
-  - GPLv3
+  - GPL-3.0-only
 license_file: 'LICENSE'
 tags:
   - icinga
