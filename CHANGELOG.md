@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.2](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/0.0.2) (2021-03-26)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/0.0.1...0.0.2)
+
 ## [0.0.1](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/0.0.1) (2021-03-26)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/eb9afca1e04c3c5e81cc25aa3797467df7f93c1a...0.0.1)
