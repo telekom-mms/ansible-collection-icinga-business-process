@@ -2,12 +2,18 @@
 
 This collection contains an Ansible role which does generate configuration for the Icinga business process extension.
 
-Tested Ansible version: 2.9.9
-
 ## Installation
 
 ```bash
-TBA
+ansible-galaxy collection install t_systems_mms.icinga_business_process
+```
+
+Alternatively put the collection into a requirements.yml-file:
+
+```yaml
+---
+collections:
+- t_systems_mms.icinga_business_process
 ```
 
 ## Example using the role
