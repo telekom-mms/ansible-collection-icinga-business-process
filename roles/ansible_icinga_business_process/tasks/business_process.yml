@@ -21,6 +21,15 @@
   when: alreadyexists.status == 200
   register: configuration_download
 
+- name: cleanup downloaded process configuration
+  set_fact:
+    dl_cleanup: "{{ configuration_download.content | regex_replace('#.*\n','') | replace('\n\n\n', '\n') | replace('\n\n', '\n') }}"
+  when: alreadyexists.status == 200 and configuration_download.content is defined
+
+- name: cleanup business process configuration
+  set_fact:
+    template_cleanup: "{{ lookup('template', './config.j2', convert_data=False) | regex_replace('#.*\n','') | replace('\n\n', '\n') }}"
+
 - name: delete existing business process if it exists
   uri:
     url: "{{ icinga_business_process_url }}/businessprocess/process/config?config={{ item.title }}"
@@ -37,11 +46,11 @@
       - 302
   when: >
     alreadyexists.status == 200 and
-    configuration_download.content != "{{ lookup('template', './config.j2', convert_data=False) }}"
+    dl_cleanup != template_cleanup
 
-- name: wait for 5 seconds and continue with play
+- name: wait for 10 seconds and continue with play
   wait_for:
-    timeout: 5
+    timeout: 10
 
 - name: upload template
   uri:
@@ -57,3 +66,9 @@
       source: "{{ lookup('template', './config.j2', convert_data=False) }}"
       Store: Store
       __FORM_NAME: IcingaModuleBusinessprocessFormsBpUploadForm
+  when: >
+    (
+      alreadyexists.status == 200 and
+      dl_cleanup != template_cleanup
+    ) or
+    alreadyexists.status == 404
