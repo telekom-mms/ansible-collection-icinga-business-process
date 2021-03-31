@@ -13,7 +13,7 @@
 
 - name: download configuration of existing business process
   uri:
-    url: "{{ icinga_business_process_url }}/businessprocess/process/download?config=ansible-test"
+    url: "{{ icinga_business_process_url }}/businessprocess/process/download?config={{ item.title }}"
     user: "{{ icinga_business_process_user }}"
     password: "{{ icinga_business_process_password }}"
     method: GET
