@@ -48,10 +48,6 @@
     alreadyexists.status == 200 and
     dl_cleanup != template_cleanup
 
-- name: wait for 10 seconds and continue with play
-  wait_for:
-    timeout: 10
-
 - name: upload template
   uri:
     url: "{{ icinga_business_process_url }}/businessprocess/process/upload"
@@ -66,6 +62,10 @@
       source: "{{ lookup('template', './config.j2', convert_data=False) }}"
       Store: Store
       __FORM_NAME: IcingaModuleBusinessprocessFormsBpUploadForm
+  register: upload
+  retries: 10
+  delay: 10
+  until: upload.status == 302
   when: >
     (
       alreadyexists.status == 200 and
