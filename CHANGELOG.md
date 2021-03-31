@@ -1,8 +1,16 @@
 # Changelog
 
-## [0.0.4](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/0.0.4) (2021-03-31)
+## [1.0.1](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/1.0.1) (2021-03-31)
 
-[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/0.0.3...0.0.4)
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/1.0.0...1.0.1)
+
+**Fixed bugs:**
+
+- removed hardcoded test sample and added item.title instead [\#2](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/2) ([xFuture603](https://github.com/xFuture603))
+
+## [1.0.0](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/1.0.0) (2021-03-31)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/0.0.3...1.0.0)
 
 **Merged pull requests:**
 
