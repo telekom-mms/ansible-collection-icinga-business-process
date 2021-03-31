@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.4](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/0.0.4) (2021-03-31)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/0.0.3...0.0.4)
+
+**Merged pull requests:**
+
+- fix ansible-lint warnings [\#1](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/1) ([z-bsod](https://github.com/z-bsod))
+
+## [0.0.3](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/0.0.3) (2021-03-26)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/0.0.2...0.0.3)
+
 ## [0.0.2](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/0.0.2) (2021-03-26)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/0.0.1...0.0.2)
