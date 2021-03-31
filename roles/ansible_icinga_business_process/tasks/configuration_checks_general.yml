@@ -1,23 +1,30 @@
 ---
-- assert:
+- name: check that the icinga url is defined
+  assert:
     that:
       - icinga_business_process_url is defined
     fail_msg: >
       icinga_business_process url is not defined
       (should point to your icinga installation)
-- assert:
+
+- name: check that the icinga user is defined
+  assert:
     that:
       - icinga_business_process_user is defined
     fail_msg: >
       icinga_business_process_user is not defined
       (should contain your user for icinga login)
-- assert:
+
+- name: check that the icinga password is defined
+  assert:
     that:
       - icinga_business_process_password is defined
     fail_msg: >
       icinga_business_process_password is not defined
       (should contain your login password for icinga login)
-- assert:
+
+- name: check that business process configuration is defined
+  assert:
     that:
       - icinga_business_processes is defined
     fail_msg: >

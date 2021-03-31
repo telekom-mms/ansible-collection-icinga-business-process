@@ -1,20 +1,22 @@
 ---
 
-- assert:
+- name: check the configuration of the business process
+  assert:
     that:
-      - businessprocess.title is defined
-      - businessprocess.owner is defined
-      - businessprocess.menu == True or businessprocess.menu == False
-      - businessprocess.statetype == 'soft' or businessprocess.statetype == 'hard'
-      - businessprocess.nodes|length>0
+      - businessprocess.title | length > 0
+      - businessprocess.owner | length > 0
+      - businessprocess.menu in (True, False)
+      - businessprocess.statetype in ('soft', 'hard')
+      - businessprocess.nodes | length > 0
 
-- assert:
+- name: check the configuration of the nodes
+  assert:
     that:
-      - node.name is defined
-      - node.displayname is defined
-      - node.operator is defined
-      - node.visible == True or node.visible == False
-      - node.checks|length>0
+      - node.name | length > 0
+      - node.displayname | length > 0
+      - node.operator | length > 0
+      - node.visible in (True, False)
+      - node.checks | length > 0
   loop: "{{ businessprocess.nodes }}"
   loop_control:
     loop_var: node
