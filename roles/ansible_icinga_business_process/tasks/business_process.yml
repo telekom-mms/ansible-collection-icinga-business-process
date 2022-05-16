@@ -5,6 +5,7 @@
     url: "{{ icinga_business_process_url }}/businessprocess/process/show?config={{ item.title }}&format=json"
     user: "{{ icinga_business_process_user }}"
     password: "{{ icinga_business_process_password }}"
+    force_basic_auth: "{{ icinga_business_process_force_basic_auth | default(omit) }}"
     method: GET
     status_code:
       - 404
@@ -16,6 +17,7 @@
     url: "{{ icinga_business_process_url }}/businessprocess/process/download?config={{ item.title }}"
     user: "{{ icinga_business_process_user }}"
     password: "{{ icinga_business_process_password }}"
+    force_basic_auth: "{{ icinga_business_process_force_basic_auth | default(omit) }}"
     method: GET
     return_content: true
   when: alreadyexists.status == 200
@@ -35,6 +37,7 @@
     url: "{{ icinga_business_process_url }}/businessprocess/process/config?config={{ item.title }}"
     user: "{{ icinga_business_process_user }}"
     password: "{{ icinga_business_process_password }}"
+    force_basic_auth: "{{ icinga_business_process_force_basic_auth | default(omit) }}"
     method: POST
     body_format: form-urlencoded
     body:
@@ -53,6 +56,7 @@
     url: "{{ icinga_business_process_url }}/businessprocess/process/upload"
     user: "{{ icinga_business_process_user }}"
     password: "{{ icinga_business_process_password }}"
+    force_basic_auth: "{{ icinga_business_process_force_basic_auth | default(omit) }}"
     method: POST
     status_code:
       - 302
