@@ -25,12 +25,12 @@
 
 - name: cleanup downloaded process configuration
   set_fact:
-    dl_cleanup: "{{ configuration_download.content | regex_replace('#.*\n','') | replace('\n\n\n', '\n') | replace('\n\n', '\n') }}"
+    dl_cleanup: "{{ configuration_download.content | replace('\n\n\n', '\n') | replace('\n\n', '\n') }}"
   when: alreadyexists.status == 200 and configuration_download.content is defined
 
 - name: cleanup business process configuration
   set_fact:
-    template_cleanup: "{{ lookup('template', './config.j2', convert_data=False) | regex_replace('#.*\n','') | replace('\n\n', '\n') }}"
+    template_cleanup: "{{ lookup('template', './config.j2', convert_data=False) | replace('\n\n', '\n') }}"
 
 - name: delete existing business process if it exists
   uri:
