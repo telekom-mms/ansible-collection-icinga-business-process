@@ -3,7 +3,11 @@
 # Title           : {{ item.title }}
 # Description     : {{ item.description }}
 # Owner           : {{ item.owner }}
-# AddToMenu       : {{ item.menu }}
+{% if item.menu == true -%}
+# AddToMenu       : yes
+{% else -%}
+# AddToMenu       : no
+{% endif -%}
 # Statetype       : {{ item.statetype }}
 #
 ###################################
@@ -26,13 +30,13 @@
 	{%- endfor -%}
 
 {% if node.operator == 'or' -%}
-	{{ node.name }} = {{ checks|join(' | ') }}
+	{{ node.name }} = | {{ checks|join(' | ') }}
 {% elif node.operator == 'not' -%}
-	{{ node.name }} = {{ checks|join(' ! ') }}
+	{{ node.name }} = ! {{ checks|join(' ! ') }}
 {% elif node.operator == 'and' -%}
-	{{ node.name }} = {{ checks|join(' & ') }}
+	{{ node.name }} = & {{ checks|join(' & ') }}
 {% elif node.operator is defined -%}
-	{{ node.name }} = {{ node.operator }}: {{ checks|join(' + ') }}
+	{{ node.name }} = {{ node.operator }}: + {{ checks|join(' + ') }}
 {% endif %}
 {% if node.visible -%}
     {%- set display = '1' -%}
