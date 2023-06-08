@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/1.0.4) (2023-06-08)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/1.0.3...1.0.4)
+
+**Merged pull requests:**
+
+- Configure Renovate [\#4](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/4) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [1.0.3](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/1.0.3) (2022-05-18)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/1.0.2...1.0.3)
