@@ -6,6 +6,9 @@
 
 **Merged pull requests:**
 
+- Update github-actions-x/commit action to v2.9 [\#11](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/11) ([renovate[bot]](https://github.com/apps/renovate))
+- Update charmixer/auto-changelog-action action to v1.4 [\#9](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/9) ([renovate[bot]](https://github.com/apps/renovate))
+- Update actions/checkout action to v2.7.0 [\#8](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/8) ([renovate[bot]](https://github.com/apps/renovate))
 - Configure Renovate [\#4](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/4) ([renovate[bot]](https://github.com/apps/renovate))
 
 ## [1.0.3](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/1.0.3) (2022-05-18)
