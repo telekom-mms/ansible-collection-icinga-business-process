@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.5](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/1.0.5) (2023-06-08)
+
+[Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/1.0.4...1.0.5)
+
+**Merged pull requests:**
+
+- Update actions/checkout action to v3 [\#12](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/12) ([renovate[bot]](https://github.com/apps/renovate))
+- add the "force\_basic\_auth" parameter to the README file of the role [\#7](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/pull/7) ([z-bsod](https://github.com/z-bsod))
+
 ## [1.0.4](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/tree/1.0.4) (2023-06-08)
 
 [Full Changelog](https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/compare/1.0.3...1.0.4)
