@@ -1,10 +1,10 @@
-namespace: t_systems_mms
+namespace: telekom_mms
 name: icinga_business_process
 version: 1.0.4
 readme: README.md
 authors:
-  - Christoph Sieber <christoph.sieber@t-systems.com>
-  - Daniel Uhlmann <daniel.uhlmann@t-systems.com>
+  - Christoph Sieber <christoph.sieber@telekom.de>
+  - Daniel Uhlmann <daniel.uhlmann@telekom.de>
 description: >-
   This collection contains an Ansible role to configure business processes in
   the icinga business process extension.
@@ -16,10 +16,10 @@ tags:
   - monitoring
   - business_process
 dependencies: {}
-repository: 'https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process'
-documentation: 'https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process'
-homepage: 'https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process'
+repository: 'https://github.com/telekom-mms/ansible-collection-icinga-business-process'
+documentation: 'https://github.com/telekom-mms/ansible-collection-icinga-business-process'
+homepage: 'https://github.com/telekom-mms/ansible-collection-icinga-business-process'
 issues: >-
-  https://github.com/T-Systems-MMS/ansible-collection-icinga-business-process/issues
+  https://github.com/telekom-mms/ansible-collection-icinga-business-process/issues
 build_ignore:
   - .github
