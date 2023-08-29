@@ -1,8 +1,8 @@
 ---
 collections:
-  - t_systems_mms.icinga_business_process
+  - telekom_mms.icinga_business_process
 galaxy_info:
-  author: t_systems_mms
+  author: telekom_mms
   description: icinga business process configuration
   license: GPLv3
   min_ansible_version: 2.9

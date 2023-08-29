@@ -5,7 +5,7 @@ This collection contains an Ansible role which does generate configuration for t
 ## Installation
 
 ```bash
-ansible-galaxy collection install t_systems_mms.icinga_business_process
+ansible-galaxy collection install telekom_mms.icinga_business_process
 ```
 
 Alternatively put the collection into a requirements.yml-file:
@@ -13,7 +13,7 @@ Alternatively put the collection into a requirements.yml-file:
 ```yaml
 ---
 collections:
-- t_systems_mms.icinga_business_process
+- telekom_mms.icinga_business_process
 ```
 
 ## Example using the role

@@ -40,5 +40,5 @@ jobs:
           commit-message: 'update galaxy.yml with new version'
           force-add: 'true'
           files: galaxy.yml
-          name: T-Systems MMS
-          email: frage@t-systems-mms.com
+          name: Telekom MMS
+          email: mms@telekom.de
