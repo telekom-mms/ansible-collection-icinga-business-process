@@ -71,7 +71,7 @@ Including an example of how to use your role (for instance, with variables passe
     icinga_business_process_user: username
     icinga_business_process_password: loginpassword
     icinga_business_process_url: https://icinga.example.com
-    icinga_business_process_force_basic_auth: True
+    icinga_business_process_force_basic_auth: true
     icinga_business_processes:
       - title: ansible-test
         description: Test Business process for Ansible Role

@@ -27,6 +27,12 @@ If you get this type of error it probably means that a node or service was speci
 ```bash
 "Status code was 200 and not [302]: OK (unknown bytes)"
 ```
+
+There are some cases where you need to set the variable `icinga_business_process_force_basic_auth` to `true`, otherwise you will get the following error from every play where the Ansible uri module is used:
+
+```bash
+AbstractDigestAuthHandler does not support the following scheme: ''Negotiate''
+```
 ## License
 
 GPLv3
