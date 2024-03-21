@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/telekom-mms/ansible-collection-icinga-business-process/tree/HEAD)
+## [2.0.1](https://github.com/telekom-mms/ansible-collection-icinga-business-process/tree/2.0.1) (2024-03-21)
 
-[Full Changelog](https://github.com/telekom-mms/ansible-collection-icinga-business-process/compare/2.0.0...HEAD)
+[Full Changelog](https://github.com/telekom-mms/ansible-collection-icinga-business-process/compare/2.0.0...2.0.1)
 
 **Merged pull requests:**
 
