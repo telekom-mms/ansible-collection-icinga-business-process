@@ -1,13 +1,12 @@
 namespace: telekom_mms
 name: icinga_business_process
-version: 2.0.0
+version: 2.0.1
 readme: README.md
 authors:
   - Christoph Sieber <christoph.sieber@telekom.de>
   - Daniel Uhlmann <daniel.uhlmann@telekom.de>
 description: >-
-  This collection contains an Ansible role to configure business processes in
-  the icinga business process extension.
+  This collection contains an Ansible role to configure business processes in the icinga business process extension.
 license:
   - GPL-3.0-only
 license_file: ''
