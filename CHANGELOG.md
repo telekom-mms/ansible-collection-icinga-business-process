@@ -1,11 +1,18 @@
 # Changelog
 
-## [2.0.1](https://github.com/telekom-mms/ansible-collection-icinga-business-process/tree/2.0.1) (2023-09-21)
+## [Unreleased](https://github.com/telekom-mms/ansible-collection-icinga-business-process/tree/HEAD)
 
-[Full Changelog](https://github.com/telekom-mms/ansible-collection-icinga-business-process/compare/2.0.0...2.0.1)
+[Full Changelog](https://github.com/telekom-mms/ansible-collection-icinga-business-process/compare/2.0.0...HEAD)
 
 **Merged pull requests:**
 
+- Update juliangruber/read-file-action digest to b549046 [\#23](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/23) ([renovate[bot]](https://github.com/apps/renovate))
+- use reusable workflow [\#22](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/22) ([rndmh3ro](https://github.com/rndmh3ro))
+- Update artis3n/ansible\_galaxy\_collection digest to 3368f56 [\#21](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/21) ([renovate[bot]](https://github.com/apps/renovate))
+- Pin dependencies [\#20](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/20) ([renovate[bot]](https://github.com/apps/renovate))
+- added documentation when to use icinga\_business\_process\_force\_basic\_auth [\#19](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/19) ([xFuture603](https://github.com/xFuture603))
+- Update actions/checkout action to v4.1.1 [\#18](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/18) ([renovate[bot]](https://github.com/apps/renovate))
+- Update actions/checkout action to v4.1.0 [\#17](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/17) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v4 [\#16](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/16) ([renovate[bot]](https://github.com/apps/renovate))
 - Update actions/checkout action to v3.6.0 [\#15](https://github.com/telekom-mms/ansible-collection-icinga-business-process/pull/15) ([renovate[bot]](https://github.com/apps/renovate))
 
