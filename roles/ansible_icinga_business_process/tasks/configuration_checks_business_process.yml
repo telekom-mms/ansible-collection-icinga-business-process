@@ -1,7 +1,7 @@
 ---
 
-- name: check the configuration of the business process
-  assert:
+- name: Check the configuration of the business process
+  ansible.builtin.assert:
     that:
       - businessprocess.title | length > 0
       - businessprocess.owner | length > 0
@@ -9,8 +9,8 @@
       - businessprocess.statetype in ('soft', 'hard')
       - businessprocess.nodes | length > 0
 
-- name: check the configuration of the nodes
-  assert:
+- name: Check the configuration of the nodes
+  ansible.builtin.assert:
     that:
       - node.name | length > 0
       - node.displayname | length > 0
@@ -21,8 +21,8 @@
   loop_control:
     loop_var: node
 
-- name: perform node configuration checks
-  include_tasks: configuration_checks_node.yml
+- name: Perform node configuration checks
+  ansible.builtin.include_tasks: configuration_checks_node.yml
   loop: "{{ businessprocess.nodes }}"
   loop_control:
     loop_var: node

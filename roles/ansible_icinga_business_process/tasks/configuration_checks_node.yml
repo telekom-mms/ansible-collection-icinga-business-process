@@ -1,7 +1,7 @@
 ---
 
-- name: check that the required check parameters are defined
-  assert:
+- name: Check that the required check parameters are defined
+  ansible.builtin.assert:
     that:
       - check.name | length > 0
       - >
