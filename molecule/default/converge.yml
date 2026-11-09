@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: localhost
+  vars_files:
+    - business_processes.yml
+  vars:
+    icinga_business_process_user: username
+    icinga_business_process_password: loginpassword
+    icinga_business_process_url: https://icinga.example.com
+    icinga_business_process_force_basic_auth: true
+  roles:
+    - telekom_mms.icinga_business_process.ansible_icinga_business_process

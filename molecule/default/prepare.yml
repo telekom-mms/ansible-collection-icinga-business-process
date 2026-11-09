@@ -1,0 +1,10 @@
+---
+- name: Prepare Molecule output directory
+  hosts: localhost
+  tasks:
+    - name: Create repository output directory
+      tags: always
+      ansible.builtin.file:
+        path: "./output"
+        state: directory
+        mode: "0755"

@@ -1,2 +1,3 @@
 *.swp
 playbook_test.yml
+molecule/default/output

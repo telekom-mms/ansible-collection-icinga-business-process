@@ -1,0 +1,20 @@
+---
+- name: Verify
+  hosts: localhost
+  vars_files:
+    - business_processes.yml
+  tasks:
+    - name: Assert the config file matches the role template
+      vars:
+        actual_config: "{{ lookup('ansible.builtin.file', playbook_dir + '/output/test.conf', rstrip=False) }}"
+        expected_config: >-
+          {{ lookup(
+            'ansible.builtin.template',
+            playbook_dir + '/../../roles/ansible_icinga_business_process/templates/config.j2',
+            template_vars={'item': icinga_business_processes[0]},
+            rstrip=False
+          ) }}
+      ansible.builtin.assert:
+        that:
+          - actual_config == expected_config
+      tags: validate
