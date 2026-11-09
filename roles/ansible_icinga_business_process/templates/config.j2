@@ -14,11 +14,14 @@
 
 {% for node in item.nodes -%}
 	{%- set checks = [] -%}
+	{%- set state_overrides = [] -%}
 	{%- for check in node.checks -%}
 		{%- if check.type == 'host' -%}
 			{%- set check_string = check.name + ';Hoststatus' -%}
+			{%- set state_codes = {'up': 0, 'down': 1, 'pending': 99} -%}
 		{%- elif check.type == 'service' -%}
 			{%- set check_string = check.name + ';' + check.service -%}
+			{%- set state_codes = {'ok': 0, 'warning': 1, 'critical': 2, 'unknown': 3, 'pending': 99} -%}
 		{%- elif check.type == 'node' -%}
 			{%- if check.process is defined -%}
 				{%- set check_string = '@' + check.process + ':' + check.name -%}
@@ -26,7 +29,14 @@
 				{%- set check_string = check.name -%}
 			{%- endif -%}
 		{%- endif -%}
-		{{ checks.append(check_string) }}
+		{%- if check.type in ('host', 'service') and check.state_overrides is defined and check.state_overrides -%}
+			{%- set mapped_states = [] -%}
+			{%- for state, target in check.state_overrides.items() -%}
+				{%- set _ = mapped_states.append((state_codes[state]|string) + '-' + (target|string)) -%}
+			{%- endfor -%}
+			{%- set _ = state_overrides.append('state_overrides ' + node.name + '!' + check_string + '|' + mapped_states|join(',')) -%}
+		{%- endif -%}
+		{%- set _ = checks.append(check_string) -%}
 	{%- endfor -%}
 
 {% if node.operator == 'or' -%}
@@ -38,6 +48,7 @@
 {% elif node.operator is defined -%}
 	{{ node.name }} = {{ node.operator }}: + {{ checks|join(' + ') }}
 {% endif %}
+{{ state_overrides|join('\n') }}
 {% if node.visible -%}
     {%- set display = '1' -%}
 {% else -%}
@@ -49,4 +60,3 @@ display {{ display }};{{ node.name }};{{ node.displayname }}
 {% endif %}
 
 {% endfor %}
-

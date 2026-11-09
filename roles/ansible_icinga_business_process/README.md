@@ -22,9 +22,14 @@ icinga_business_processes:
       checks:
         - name: testserver1
           type: host
+          state_overrides:
+            pending: 1
         - name: testserver1
           type: service
           service: webserver_status
+          state_overrides:
+            unknown: 0
+            pending: 0
         - name: testsubnode
           type: node
         - name: subprocess2
@@ -58,6 +63,7 @@ icinga_business_processes:
 | type                                     | yes        | string   | possible values are: host/service/node
 | service                                  | no         | string   | check service if type is service
 | process                                  | no         | string   | does set the external businessprocess if type is node
+| state_overrides                         | no         | mapping  | Optional per-check mapping from lowercase state names to target state codes (for example `warning: 0`). An empty mapping disables overrides for that check.
 
 ## Dependencies
 - Ansible >= 2.9
@@ -104,6 +110,9 @@ Including an example of how to use your role (for instance, with variables passe
               - name: service-prod-web02
                 type: service
                 service: check_php_fpm_status
+                state_overrides:
+                  unknown: 0
+                  pending: 0
           - name: service-frontend
             displayname: Frontend
             visible: true

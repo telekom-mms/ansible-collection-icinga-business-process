@@ -1,14 +1,27 @@
 ---
 
 - name: Perform general configuration checks
+  tags: validate
   ansible.builtin.include_tasks: configuration_checks_general.yml
 
 - name: Perform business process configuration checks
+  tags: validate
   ansible.builtin.include_tasks: configuration_checks_business_process.yml
   loop: "{{ icinga_business_processes }}"
   loop_control:
     loop_var: businessprocess
 
+- name: Render business process configuration
+  tags:
+    - never
+    - validate
+  ansible.builtin.template:
+    src: config.j2
+    dest: ./output/test.conf
+    mode: '0644'
+  loop: "{{ icinga_business_processes }}"
+
 - name: Setup business processes
+  tags: configure
   ansible.builtin.include_tasks: business_process.yml
   loop: "{{ icinga_business_processes }}"

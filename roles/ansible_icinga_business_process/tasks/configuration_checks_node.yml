@@ -14,3 +14,26 @@
   loop: "{{ node.checks }}"
   loop_control:
     loop_var: check
+
+- name: Check that the state override parameters are valid
+  when: check.state_overrides is defined
+  ansible.builtin.assert:
+    that:
+      - >
+        check.state_overrides is mapping and
+        check.type in ('host', 'service') and
+        (
+          (
+            check.type == 'host' and
+            check.state_overrides.keys() | list | difference(['down', 'pending']) | length == 0 and
+            check.state_overrides.values() | reject('in', [0, 1, 99]) | list | length == 0
+          ) or
+          (
+            check.type == 'service' and
+            check.state_overrides.keys() | list | difference(['warning', 'critical', 'unknown', 'pending']) | length == 0 and
+            check.state_overrides.values() | reject('in', [0, 1, 2, 3, 99]) | list | length == 0
+          )
+        )
+  loop: "{{ node.checks }}"
+  loop_control:
+    loop_var: check
