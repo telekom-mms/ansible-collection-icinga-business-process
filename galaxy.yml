@@ -1,6 +1,6 @@
 namespace: telekom_mms
 name: icinga_business_process
-version: 2.0.1
+version: 2.1.0
 readme: README.md
 authors:
   - Christoph Sieber <christoph.sieber@telekom.de>
